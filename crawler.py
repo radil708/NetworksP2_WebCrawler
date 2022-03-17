@@ -57,7 +57,7 @@ def main():
     try:
         session_id_1 = get_session_id(login_post_resp_head)
     except RuntimeError:
-        print(f"ERROR: Incorrect username: {list_args[0]} or password: {list_args[1]}", end="")
+        print(f"ERROR: Incorrect username: {list_args[0]} or password: {list_args[1]}")
         exit(1)
 
     HTTPHandler.set_csrftoken(cookie_2)
