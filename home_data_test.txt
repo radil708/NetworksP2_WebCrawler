@@ -1,0 +1,59 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<!-- Bootstrap's required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+	<!-- jQuery JS: Bootstrap Prereq -->
+	<script src="/static/jquery/jquery.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+	<title>Fakebook</title>
+</head>
+
+<body>
+	<div class="container">
+
+		<div id="header" class="row">
+			<div class="col-9"><a href="/">Home</a></div>
+
+
+			<div class="col-3 text-right"><a href="/accounts/login/">Log in</a></div>
+
+		</div>
+		<hr />
+
+
+		<div id="content">
+
+			<h1>Khoury Teaching Webcrawler Site Directory</h1>
+			<h2>List of available sites:</h2>
+			<ul>
+				<li><a href="/fakebook/">Fakebook</a></li>
+				<!-- <li><a href="{ url 'fakebook4700:index' %}">Fakebook4700</a></li> -->
+			</ul>
+			<h6>
+				All sites run by Technical Staff at <a href="http://khoury.northeastern.edu">Khoury College</a>.
+				They are meant for education purposes only.
+				For questions, contact <a href="mailto:systems-stt-admin@zimbra.ccs.neu.edu">The College's Teaching Tool
+					Admin</a>
+			</h6>
+
+		</div>
+
+
+		<div id="footer">
+			<hr />
+		</div>
+
+	</div>
+</body>
+
+</html>
+
+/accounts/login/?next=/fakebook
