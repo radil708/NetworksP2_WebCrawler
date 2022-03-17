@@ -131,7 +131,7 @@ class myHTTPRequestObj:
         return get_response
 
     def close_http_connection(self):
-        self.current_socket.close_connection()
+        self.current_socket.close_connection(display_closing_msg=self.socket_display_bool)
 
 
 
