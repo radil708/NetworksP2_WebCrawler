@@ -17,7 +17,7 @@ def main():
         print("ERROR: Incorrect amount of args passed\nPlease only pass 2 args in the format <username> <password>")
 
 
-    #Comment out for final submission, used to test using valid username and password
+    # Comment out for final submission, used to test using valid username and password
     #list_args = [USERNAME,PASSWORD]
 
     response_parser = HTMLResponseHelper()

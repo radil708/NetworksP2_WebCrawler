@@ -1,3 +1,57 @@
-My program will print out all the secret flags all at once, so it will take a few minutes to find all 5.
-Please wait around 5 min to find all flags. You can also uncomment line 34 of myHTMLParsers.py to see real flags
-pop up in real time.
+This repo is intended to showcase code I've written in python for my network projects
+to potential employers
+
+---------------------------------------------------------------------------------------
+Features:
+	- Socket implementation
+	- http requests implementation
+	- html parsing
+
+---------------------------------------------------------------------------------------
+High Level Requirements:
+	- crawl through "Fakebook" (a fake social media website set up for the project
+	 	and find 5 secret flags hidden in the page htmls)
+		> save these secret flags in a secret_flags file
+	- You must create your own socket (can use the one you made in previous project)
+	- You must create you own code to send and obtain HTTP requests i.e. no external modules like python requests module
+	- Your crawler must be able to handle:
+		> HTTP GET - These requests are necessary for downloading HTML pages.
+		> HTTP POST - You will need to implement HTTP POST so that your code can login to Fakebook.
+			As shown above, you will pass a username and password to your crawler on the command line.
+			The crawler will then use these values as parameters in an HTTP POST in order to log-in to Fakebook.
+		> Cookie Management - Fakebook uses cookies to track whether clients are logged in to the site.
+			If your crawler successfully logs in to Fakebook using an HTTP POST, Fakebook will
+			return a session cookie to your crawler. Your crawler should store this cookie,
+			and submit it along with each HTTP GET request as it crawls Fakebook. If your crawler fails
+			to handle cookies properly, then your software will not be able to successfully crawl Fakebook.
+	- Your crawler must be able to handle HTTP status codes:
+		> 301 - Moved Permanently: This is known as an HTTP redirect. Your crawler should try the request again
+			using the new URL given by the server.
+		> 403 - Forbidden and 404 - Not Found: Our web server may return these codes in order
+			to trip up your crawler. In this case, your crawler should abandon the URL that generated the error code.
+		> 500 - Internal Server Error: Our web server may randomly return this error code to your crawler.
+			In this case, your crawler should re-try the request for the URL until the request is successful.
+---------------------------------------------------------------------------------------
+FAKEBOOK
+Fakebook is fake social network set up for the project. It is a simple website consisting of the following pages
+	1.) Homepage: displays welcome page and has links to several random Fakebook users
+	2.) Personal profiles: includes name, demographic info, and list of friends
+	3.) Each Fakebook user is friends with one or more other Fakebook users.
+		This page lists the user's friends and has links to their personal profiles.
+- In order to browse Fakebook, you must first login with a username and password.
+	This will be emailed to each student.
+- Requests to the fakebook server will be met with responses that include the header and html data
+- Secret flags may be hidden on any page on Fakebook, and their relative location on each page
+	may be different. Each secret flag is a 64 character long sequences of random alphanumerics.
+	All secret flags will appear in the following format (which makes them easy to identify):
+	<h2 class='secret_flag' style="color:red">FLAG: 64-characters-of-random-alphanumerics</h2>
+
+------------------------------------------------------------------------------------------
+My Approach:
+	- Login to the website and for each page, collect all the links I haven't visited yet
+		and collect page htmls
+	- The rate of growth for link collecting will greatly outpace html collection
+	- So I implemented a strategy where if 100 htmls have been collected, the program
+		will look through them all before going to collect more links
+
+

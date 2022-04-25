@@ -20,12 +20,34 @@ class myHTTPRequestObj:
         self.current_session_id = None
 
     def set_csrftoken(self, token_in : str):
+        '''
+        set the csrftoken attribute, needed to proceed after
+        login.
+        :param token_in: the csrftoken
+        :return:
+        '''
         self.current_csrftoken = token_in
 
     def set_session_id(self,sess_id_in : str):
+        '''
+        Set the session_id attribute, needed to proceed after login
+        :param sess_id_in:
+        :return:
+        '''
         self.current_session_id = sess_id_in
 
     def post_request(self, resource : str, payload_in : dict, show_sent = False, show_resp = False, encoding_in =""):
+        '''
+        Creates POST requests, sends them, and receives response. If connection drops to server drops, it will reinitialize
+            the connection.
+        :param resource: (str) the website path/resource
+        :param payload_in: (dict) representing the payload the post will drop off
+        :param show_sent: (bool) if true will print statements regarding request to send to console
+        :param show_resp: (bool) if true will print statements regarding the response to post request sent
+        :param encoding_in: (str) encoding of the data to send and receive, will call python default encoding
+                            by default
+        :return: (str) response to post
+        '''
         payload_str = ""
 
         # translate the dictionary into a string payload
@@ -90,6 +112,17 @@ class myHTTPRequestObj:
 
 
     def get_request(self, resource, show_sent=False, show_rcd_byte=False, show_rcd_resp=False, encoding_schema=""):
+        '''
+        Creates an http GET request, sends it , and receives the response. It will reinitialize the connection
+            to server, if server drops it for whatever reason.
+        :param resource: (str) the website path/resource
+        :param show_sent: (bool) if true will print statements regarding request to send to console
+        :param show_rcd_byte: (bool) if true will print statements regarding response to GET request sent
+        :param show_rcd_resp: (bool) if true will print statements regarding response to GET request sent
+        :param encoding_schema: (str) encoding of the data to send and receive, will call python default encoding
+                            by default
+        :return: (str) response to GET request
+        '''
         msg = get_first_line(resource) + self.host_header
         msg += "Connection: keep-alive" + "\r\n"
 
@@ -131,6 +164,10 @@ class myHTTPRequestObj:
         return get_response
 
     def close_http_connection(self):
+        '''
+        Closes the socket connection to the server
+        :return: None
+        '''
         self.current_socket.close_connection(display_closing_msg=self.socket_display_bool)
 
 
