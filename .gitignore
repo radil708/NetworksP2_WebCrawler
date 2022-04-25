@@ -8,17 +8,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-geo-ipv4.csv
-/geo-ipv4.csv
-
 # C extensions
 *.so
 
 #ignore this folder
 .vscode
 
-#ignore this file
-/ipdb/geo-ipv4.csv
 
 # Distribution / packaging
 .Python
