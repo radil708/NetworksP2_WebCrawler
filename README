@@ -17,7 +17,7 @@ High Level Requirements:
 	- Your crawler must be able to handle:
 		> HTTP GET - These requests are necessary for downloading HTML pages.
 		> HTTP POST - You will need to implement HTTP POST so that your code can login to Fakebook.
-			As shown above, you will pass a username and password to your crawler on the command line.
+			You will pass a username and password to your crawler on the command line.
 			The crawler will then use these values as parameters in an HTTP POST in order to log-in to Fakebook.
 		> Cookie Management - Fakebook uses cookies to track whether clients are logged in to the site.
 			If your crawler successfully logs in to Fakebook using an HTTP POST, Fakebook will
@@ -53,5 +53,6 @@ My Approach:
 	- The rate of growth for link collecting will greatly outpace html collection
 	- So I implemented a strategy where if 100 htmls have been collected, the program
 		will look through them all before going to collect more links
+*** Note my credentials to login to FAKEBOOK may be expired by May 2022.
 
 
